@@ -9,6 +9,7 @@ import {
     navigation,
     rain,
     snow,
+    mist
 } from "@/app/utils/Icons";
 import moment from 'moment';
 
@@ -18,7 +19,7 @@ const Temperature = () => {
     const { main, timezone, name, weather } = forecast
 
     if (!forecast || !weather) {
-        return <div>Loading...</div>
+        return <div className='flex items-center justify-center'>Loading...</div>
     }
 
     const temp = kelvinToCelsius(main?.temp)
@@ -43,6 +44,8 @@ const Temperature = () => {
                 return clearSky;
             case "Clouds":
                 return cloudy;
+            case "Mist":
+                return mist;
             default:
                 return clearSky;
         }
@@ -72,15 +75,15 @@ const Temperature = () => {
                 <span className='text-2xl'>{name}</span>
                 <span>{navigation}</span>
             </p>
-            <p className="pt-8 pb-4 text-9xl font-bold self-center">{temp}°C</p>
-            <p className="flex items-center gap-2 justify-center text-lg bg-zinc-900 w-5/12 self-center
-            rounded-lg py-1">
+            <p className="pt-8 pb-4 text-8xl font-bold self-center">{temp}°C</p>
+            <p className="flex items-center gap-2 font-semibold justify-center text-base bg-zinc-900 w-5/12
+            self-center rounded-lg py-1">
                 <span>Low: {minTemp}°C</span>
                 <span>High: {maxTemp}°C</span>
             </p>
 
             <span className='pt-2'>{getIcon()}</span>
-            <p className="pt-2 capitalize text-lg font-medium">{description}</p>
+            <p className="pt-2 capitalize text-xl font-medium">{description}</p>
         </div>
     )
 }

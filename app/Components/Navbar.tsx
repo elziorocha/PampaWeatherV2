@@ -13,9 +13,8 @@ function Navbar() {
     const { state } = useGlobalContext();
 
     return (
-        <div className="w-full py-4 flex items-center justify-between">
-            <div className="left"></div>
-            <div className="search-container flex shrink-0 w-full gap-2 sm:w-fit">
+        <div className="flex w-full items-center justify-end py-4">
+            <div className="search-container flex w-full shrink-0 gap-2 sm:w-fit">
                 <SearchDialog />
 
                 <div className="btn-group flex items-center gap-2">

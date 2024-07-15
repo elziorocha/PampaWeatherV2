@@ -13,10 +13,10 @@ const SearchDialog = () => {
                 <DialogTrigger asChild>
                     <Button
                         variant="outline"
-                        className="border inline-flex items-center justify-center text-sm font-medium hover:dark:bg-[#131313] hover:bg-slate-100  ease-in-out duration-200"
+                        className="inline-flex items-center justify-center border text-sm font-medium duration-200 ease-in-out  hover:bg-slate-100 hover:dark:bg-[#131313]"
                     >
                         <p className="text-sm text-muted-foreground">Search Here...</p>
-                        <div className="command dark:bg-[#262626] bg-slate-200 py-[4px] pl-[5px] pr-[7px] rounded-sm ml-[10rem] flex items-center gap-1.5">
+                        <div className="command ml-40 flex items-center gap-1.5 rounded-sm bg-slate-200 py-[4px] pl-[5px] pr-[7px] dark:bg-[#262626]">
                             {commandIcon}
                             <span className="text-xs">F</span>
                         </div>
