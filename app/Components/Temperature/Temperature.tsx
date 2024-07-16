@@ -75,9 +75,9 @@ const Temperature = () => {
                 <span className='text-2xl'>{name}</span>
                 <span>{navigation}</span>
             </p>
-            <p className="pt-8 pb-4 text-8xl font-bold self-center">{temp}°C</p>
-            <p className="flex items-center gap-2 font-semibold justify-center text-base bg-zinc-900 w-5/12
-            self-center rounded-lg py-1">
+            <p className="pt-10 pb-4 text-8xl font-bold self-center">{temp}°C</p>
+            <p className="flex items-center gap-2 font-medium justify-center text-base bg-zinc-200 dark:bg-zinc-900 w-7/12
+            self-center rounded-lg py-1 mb-9">
                 <span>Low: {minTemp}°C</span>
                 <span>High: {maxTemp}°C</span>
             </p>
