@@ -1,6 +1,8 @@
 import AirPollution from "./Components/AirPollution/AirPollution";
 import Navbar from "./Components/Navbar";
+import Sunset from "./Components/Sunset/Sunset";
 import Temperature from "./Components/Temperature/Temperature";
+import Wind from "./Components/Wind/Wind";
 
 
 export default function Home() {
@@ -14,6 +16,8 @@ export default function Home() {
         <div className="flex w-full flex-col">
           <div className="sm-2:col-span-2 col-span-full grid h-full gap-4 lg:grid-cols-3 xl:grid-cols-4">
             <AirPollution />
+            <Sunset />
+            <Wind />
           </div>
         </div>
       </div>
