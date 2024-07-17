@@ -13,6 +13,7 @@ export async function GET(req: NextRequest) {
         const res = await axios.get(url);
 
         return NextResponse.json(res.data)
+        
     } catch (error) {
         console.log("Error in getting Air Pollution data", error)
         return new Response("Error in getting Air Pollution data", { status: 500 })

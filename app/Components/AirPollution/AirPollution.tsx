@@ -30,12 +30,12 @@ const AirPollution = () => {
 
     return (
         <div className='sm-2:col-span-2 col-span-full flex h-48 flex-col gap-8 rounded-lg border px-4
-        pt-6 shadow-sm dark:bg-dark-grey dark:shadow-none'>
+        pt-6 shadow-sm dark:bg-dark-grey dark:shadow-none md:col-span-2 xl:col-span-2'>
             <h2 className='flex items-center gap-2 font-medium'>
                 {thermo}Air Pollution
             </h2>
             <Progress value={airQualityIndex} max={100} className="progress" />
-            <p className="text-sm">Air quality is {filteredIndex?.description}.</p>
+            <p className="font-medium">Air quality is {filteredIndex?.description}.</p>
         </div>
     )
 }
