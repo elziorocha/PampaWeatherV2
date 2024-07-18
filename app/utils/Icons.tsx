@@ -31,7 +31,7 @@ export const snow = <Snowflake size={30} />;
 export const clearSky = <CloudSun size={30} />;
 export const cloudy = <Cloudy size={30} />;
 export const navigation = <Navigation size={18} fill="#fff"/>;
-export const thermo = <ThermometerSun size={20} />;
+export const thermo = <ThermometerSun size={24} />;
 export const sunset = <Sunset size={22} />;
 export const Sunrise = <SunriseIcon size={22} />;
 export const mist = <CloudFog size={30}/>
@@ -40,6 +40,6 @@ export const gauge = <Gauge size={15} />;
 export const droplets = <Droplets size={15} />;
 export const thermometer = <Thermometer size={15} />;
 export const eye = <Eye size={15} />;
-export const people = <UsersRound size={15} />;
+export const people = <UsersRound size={20} />;
 export const calender = <CalendarDays size={15} />;
-export const sun = <SunDim size={15} />;
+export const sun = <SunDim size={26} />;

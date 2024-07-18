@@ -33,7 +33,7 @@ const DailyForecast = () => {
         (forecast: { dt_txt: string; main: { temp: number } }) => {
             return forecast.dt_txt.startsWith(todayString);
         }
-    );    
+    );
 
     const { main: weatherMain } = weather[0];
 
@@ -72,30 +72,30 @@ const DailyForecast = () => {
                     </div>
                 ) : (
                     <div className="w-full">
-<Carousel>
-    <CarouselContent className='mt-2'>
-        {list.slice(1, 9).map(
-            (forecast: { dt_txt: string; main: { temp: number } }) => {
-                return (
-                    <CarouselItem
-                        key={forecast.dt_txt}
-                        className="mx-1 flex basis-20 cursor-grab flex-col items-center gap-2 rounded
-                        bg-zinc-300 py-2 pl-0 dark:bg-zinc-900">
-                        <p className="mt-0.5 text-lg font-medium">
-                            {moment(forecast.dt_txt).format("HH:mm")}
-                        </p>
+                        <Carousel>
+                            <CarouselContent className='mt-2'>
+                                {list.slice(1, 9).map(
+                                    (forecast: { dt_txt: string; main: { temp: number } }) => {
+                                        return (
+                                            <CarouselItem
+                                                key={forecast.dt_txt}
+                                                className="mx-1 flex basis-20 cursor-grab flex-col items-center gap-2 rounded
+                                                bg-zinc-300 py-2 pl-0 dark:bg-zinc-900">
+                                                <p className="mt-0.5 text-lg font-medium">
+                                                    {moment(forecast.dt_txt).format("HH:mm")}
+                                                </p>
 
-                        <p>{getIcon()}</p>
+                                                <p>{getIcon()}</p>
 
-                        <p className="mt-1 text-lg font-medium dark:text-gray-300">
-                            {kelvinToCelsius(forecast.main.temp)}°C
-                        </p>
-                    </CarouselItem>
-                );
-            }
-        )}
-    </CarouselContent>
-</Carousel>
+                                                <p className="mt-1 text-lg font-medium dark:text-gray-300">
+                                                    {kelvinToCelsius(forecast.main.temp)}°C
+                                                </p>
+                                            </CarouselItem>
+                                        );
+                                    }
+                                )}
+                            </CarouselContent>
+                        </Carousel>
 
                     </div>
                 )}
