@@ -75,7 +75,7 @@ const UvIndex = () => {
                 />
             </div>
 
-            <p className="mt-3 text-sm italic">{uvIndexCategory(uvIndexMax).protection} </p>
+            <p className="mt-3 text-center text-sm italic">{uvIndexCategory(uvIndexMax).protection} </p>
         </div>
     )
 }
