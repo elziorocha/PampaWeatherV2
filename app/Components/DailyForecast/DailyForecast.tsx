@@ -26,18 +26,9 @@ const DailyForecast = () => {
         return <Skeleton className="h-48 w-full" />;
     }
 
-    const today = new Date();
-    const todayString = today.toISOString().split("T")[0];
-
-    const todaysForecast = list.filter(
-        (forecast: { dt_txt: string; main: { temp: number } }) => {
-            return forecast.dt_txt.startsWith(todayString);
-        }
-    );
-
     const { main: weatherMain } = weather[0];
 
-    if (todaysForecast.length < 1) {
+    if (list.length < 1) {
         return (
             <Skeleton className="sm-2:col-span-2 col-span-full h-48 w-full md:col-span-2 xl:col-span-2" />
         );
@@ -64,9 +55,9 @@ const DailyForecast = () => {
         <div className='sm-2:col-span-2 col-span-full flex h-48 flex-col gap-8 rounded-lg border px-4
         pt-6 shadow-sm dark:bg-dark-grey dark:shadow-none md:col-span-2 xl:col-span-2'>
             <div className="flex h-full gap-10 overflow-hidden">
-                {todaysForecast.length < 1 ? (
-                    <div className="flex items-center justify-center">
-                        <h1 className="text-[3rem] text-rose-500 line-through">
+                {list.length < 1 ? (
+                    <div className="flex w-full items-center justify-center">
+                        <h1 className="text-3xl text-rose-600 line-through">
                             No Data Available!
                         </h1>
                     </div>
@@ -74,7 +65,7 @@ const DailyForecast = () => {
                     <div className="w-full">
                         <Carousel>
                             <CarouselContent className='mt-2'>
-                                {list.slice(1, 9).map(
+                                {list.slice(0, 8).map(
                                     (forecast: { dt_txt: string; main: { temp: number } }) => {
                                         return (
                                             <CarouselItem

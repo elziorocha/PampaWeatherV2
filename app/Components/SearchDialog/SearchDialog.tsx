@@ -16,7 +16,7 @@ const SearchDialog = () => {
                         className="inline-flex items-center justify-center border text-sm font-medium duration-200 ease-in-out  hover:bg-slate-100 hover:dark:bg-[#131313]"
                     >
                         <p className="text-sm text-muted-foreground">Search Here...</p>
-                        <div className="command ml-40 flex items-center gap-1.5 rounded-sm bg-slate-200 py-[4px] pl-[5px] pr-[7px] dark:bg-[#262626]">
+                        <div className="ml-40 flex items-center gap-1.5 rounded-sm bg-slate-200 py-[4px] pl-[5px] pr-[7px] dark:bg-[#262626]">
                             {commandIcon}
                             <span className="text-xs">F</span>
                         </div>
