@@ -43,5 +43,5 @@ export const droplets = <Droplets size={22} />;
 export const thermometer = <Thermometer size={22} />;
 export const eye = <Eye size={22} />;
 export const people = <UsersRound size={22} />;
-export const calender = <CalendarDays size={15} />;
+export const calender = <CalendarDays size={22} />;
 export const sun = <SunDim size={26} />;
