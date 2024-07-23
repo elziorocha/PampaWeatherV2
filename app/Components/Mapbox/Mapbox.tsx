@@ -1,11 +1,16 @@
 "use client";
 import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useGlobalContext } from "@/app/contexts/GlobalContext";
+import { LatLngTuple } from 'leaflet'; // Import LatLngTuple from leaflet
 
-// @ts-ignore
-function FlyToActiveCity({ activeCityCoords }) {
+interface Coordinates {
+    lat: number;
+    lon: number;
+}
+
+function FlyToActiveCity({ activeCityCoords }: { activeCityCoords: Coordinates | undefined }) {
     const map = useMap();
 
     useEffect(() => {
@@ -25,7 +30,7 @@ function FlyToActiveCity({ activeCityCoords }) {
 const Mapbox = () => {
     const { forecast } = useGlobalContext();
 
-    const activeCityCoords = forecast?.coord;
+    const activeCityCoords: Coordinates | undefined = forecast?.coord;
 
     if (!forecast || !forecast.coord || !activeCityCoords) {
         return (
@@ -35,18 +40,25 @@ const Mapbox = () => {
         );
     }
 
+    const position: LatLngTuple = [activeCityCoords.lat, activeCityCoords.lon];
+
     return (
         <div className='flex-1 basis-1/2 rounded-lg border'>
-            <MapContainer
-                center={[activeCityCoords.lat, activeCityCoords.lon]}
+            <h2 className='flex items-center w-full justify-center h-full text-2xl text-rose-600 line-through'>
+                No Map Data Available
+            </h2>
+            {/* <MapContainer
+                center={position}
                 zoom={13}
                 scrollWheelZoom={false}
                 className="m-4 rounded-lg"
-                style={{ height: "calc(100% - 2rem)", width: "calc(100% - 2rem)" }}
-            >
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                style={{ height: "calc(100% - 2rem)", width: "calc(100% - 2rem)" }}>
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
                 <FlyToActiveCity activeCityCoords={activeCityCoords} />
-            </MapContainer>
+            </MapContainer> */}
         </div>
     );
 }
