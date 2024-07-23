@@ -50,7 +50,7 @@ const FiveDayForecast = () => {
     }
 
     return (
-        <div className='flex flex-1 flex-col justify-between rounded-lg border px-4 py-3 shadow-sm
+        <div className='flex max-h-[37.5rem] flex-1 flex-col justify-between rounded-lg border px-4 py-3 shadow-sm
         dark:bg-dark-grey dark:shadow-none'>
             <h2 className='flex items-center gap-2 text-lg font-medium'>{calender} 5-Day Forecast for {city.name}</h2>
 

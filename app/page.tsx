@@ -26,7 +26,7 @@ export default function Home() {
           <FiveDayForecast />
         </div>
         <div className="flex w-full flex-col">
-          <div className="sm-2:col-span-2 col-span-full grid h-full gap-3 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid-gap sm-2:col-span-2 col-span-full h-full gap-3 md:grid lg:grid-cols-4">
             <FeelsLike />
             <Sunset />
             <AirPollution />
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           <div className="mapbox-con mt-4 flex gap-4">
             <Mapbox />
-            <div className="flex flex-1 flex-col items-center gap-3">
+            <div className="flex-1 flex-col items-center gap-3 sm:hidden lg:flex">
               <States />
             </div>
           </div>

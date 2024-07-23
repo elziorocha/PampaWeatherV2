@@ -140,6 +140,12 @@ footer:hover .footer-text>img {
   .github-btn {
     order: -1;
   }
+
+  .grid-gap > *:not(:last-child) {
+    margin-bottom: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
 }
 
 @media screen and (max-width: 1010px) {

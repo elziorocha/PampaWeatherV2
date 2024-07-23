@@ -10,7 +10,7 @@ const States = () => {
                 {defaultStates.map((state, index) => {
                     return (
                         <div key={index} className='cursor-pointer rounded-lg border shadow-sm dark:bg-dark-grey dark:shadow-none'>
-                            <p className='px-6 py-3 font-medium'>| {state.name}, {state.country}</p>
+                            <p className='px-6 py-3 font-medium'>{state.name}, {state.country}</p>
                         </div>
                     )
                 })}
