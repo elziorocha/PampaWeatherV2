@@ -7,11 +7,11 @@ const defaultStates = [
         lon: -49.2719,
     },
     {
-        name: "London",
-        country: "GB",
-        state: "England",
-        lat: 51.5074,
-        lon: 0.1278,
+        "name": "Florence",
+        "country": "IT",
+        "state": "Tuscany",
+        "lat": 43.7696,
+        "lon": 11.2558
     },
     {
         name: "New York",
@@ -21,11 +21,11 @@ const defaultStates = [
         lon: -74.006,
     },
     {
-        name: "Sydney",
-        country: "AU",
-        state: "New South Wales",
-        lat: -33.8688197,
-        lon: 151.2092955,
+        "name": "Beijing",
+        "country": "CN",
+        "state": "China",
+        "lat": 39.9042,
+        "lon": 116.4074
     },
     {
         name: "Barcelona",

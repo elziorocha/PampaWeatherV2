@@ -53,16 +53,17 @@ const Temperature = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            const localMoment = moment().utcOffset(timezone / 60)
+            const localMoment = moment().utcOffset(timezone / 60);
 
-            const formatedTime = localMoment.format("HH.mm.ss")
+            const formatedTime = localMoment.format("HH:mm:ss");
+            const day = localMoment.format("dddd");
 
-            const day = localMoment.format("dddd")
+            setLocalTime(formatedTime);
+            setCurrentDay(day);
+        }, 1000);
 
-            setLocalTime(formatedTime)
-            setCurrentDay(day)
-        }, 1000)
-    }, [])
+        return () => clearInterval(interval);
+    }, [timezone]);
 
     return (
         <div className='py-5 px-4 border rounded-lg flex flex-col justify-between shadow-md dark:shadow-none
