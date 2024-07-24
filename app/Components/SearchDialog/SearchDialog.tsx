@@ -7,7 +7,6 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import React from 'react'
 
 const SearchDialog = () => {
-
     const { geoCodedList, inputValue, handleInput } = useGlobalContext()
     const { setActiveCityCoords } = useGlobalContextUpdate()
     const [hoveredIndex, setHoveredIndex] = React.useState<number>(0)
@@ -38,33 +37,22 @@ const SearchDialog = () => {
                         <CommandList>
                             {geoCodedList?.length === 0 || (!geoCodedList && <p>No Results</p>)}
 
-                            {geoCodedList && geoCodedList.map((
-                                item: {
-                                    name: string;
-                                    country: string;
-                                    state: string;
-                                    lat: number;
-                                    lon: number;
-                                },
-                                index: number) => {
-                                const { country, state, name } = item;
-                                return (
-                                    <>
-                                        <ul className='p-2 pb-1'>
-                                            <li key={index} onMouseEnter={() => setHoveredIndex(index)}
-                                                className={`cursor-default rounded-lg px-2 py-3 text-sm font-medium
-                                                ${hoveredIndex === index ? "bg-accent" : ""}`}
-                                                onClick={() => {
-                                                    getClickedCoords(item.lat, item.lon)
-                                                }}>
-
-                                                <p>{name}, {state && state + ','} {country}</p>
-                                            </li>
-                                        </ul>
-                                    </>
-                                );
-                            }
-                            )}
+                            <ul className='p-2 pb-1'>
+                                {/*@ts-ignore */}
+                                {geoCodedList && geoCodedList.map((item, index) => {
+                                    const { country, state, name, lat, lon } = item;
+                                    return (
+                                        <li key={`${lat}-${lon}`} onMouseEnter={() => setHoveredIndex(index)}
+                                            className={`cursor-default rounded-lg px-2 py-3 text-sm font-medium
+                                            ${hoveredIndex === index ? "bg-accent" : ""}`}
+                                            onClick={() => {
+                                                getClickedCoords(lat, lon)
+                                            }}>
+                                            <p>{name}, {state && state + ','} {country}</p>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
                         </CommandList>
                     </Command>
                 </DialogContent>
