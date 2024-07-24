@@ -1,36 +1,32 @@
-"use client";
-import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+"use client"
+import React, { useEffect } from 'react'
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useGlobalContext } from "@/app/contexts/GlobalContext";
-import { LatLngTuple } from 'leaflet'; // Import LatLngTuple from leaflet
 
-interface Coordinates {
-    lat: number;
-    lon: number;
-}
-
-function FlyToActiveCity({ activeCityCoords }: { activeCityCoords: Coordinates | undefined }) {
-    const map = useMap();
+// @ts-ignore
+function FlyToActiveCity({activeCityCoords}) {
+    const map = useMap()
 
     useEffect(() => {
         if (activeCityCoords) {
-            const zoomLev = 13;
+            const zoomLev = 13
             const flyToOptions = {
                 duration: 1.5,
             };
 
-            map.flyTo([activeCityCoords.lat, activeCityCoords.lon], zoomLev, flyToOptions);
+            map.flyTo([activeCityCoords.lat, activeCityCoords.lon], zoomLev, flyToOptions)
         }
-    }, [activeCityCoords, map]);
+    }, [activeCityCoords, map])
 
-    return null;
+    return null
 }
 
 const Mapbox = () => {
-    const { forecast } = useGlobalContext();
 
-    const activeCityCoords: Coordinates | undefined = forecast?.coord;
+    const { forecast } = useGlobalContext()
+
+    const activeCityCoords = forecast?.coord
 
     if (!forecast || !forecast.coord || !activeCityCoords) {
         return (
@@ -40,27 +36,20 @@ const Mapbox = () => {
         );
     }
 
-    const position: LatLngTuple = [activeCityCoords.lat, activeCityCoords.lon];
-
     return (
         <div className='flex-1 basis-1/2 rounded-lg border'>
-            <h2 className='flex items-center w-full justify-center h-full text-2xl text-rose-600 line-through'>
-                No Map Data Available
-            </h2>
-            {/* <MapContainer
-                center={position}
+            {/* @ts-ignore */}
+            <MapContainer center={[activeCityCoords.lat, activeCityCoords.lon]}
                 zoom={13}
                 scrollWheelZoom={false}
                 className="m-4 rounded-lg"
                 style={{ height: "calc(100% - 2rem)", width: "calc(100% - 2rem)" }}>
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+
                 <FlyToActiveCity activeCityCoords={activeCityCoords} />
-            </MapContainer> */}
+            </MapContainer>
         </div>
-    );
+    )
 }
 
-export default Mapbox;
+export default Mapbox

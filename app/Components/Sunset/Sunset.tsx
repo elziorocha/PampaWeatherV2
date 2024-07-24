@@ -21,15 +21,19 @@ const Sunset = () => {
     const sunrise = unixToTime(forecast?.sys?.sunrise, timezone);
 
     return (
-        <div className="flex h-48 flex-col items-center gap-2 rounded-lg border p-3 shadow-sm dark:bg-dark-grey
-        dark:shadow-none">
-            <h2 className="flex items-center gap-2 text-lg font-medium">{sunset}Sunset</h2>
-            <p className="text-3xl font-semibold">{sunsetTime}</p>
+        <div className="flex h-48 items-center justify-center gap-2 rounded-lg border p-3
+        shadow-sm dark:bg-dark-grey dark:shadow-none md:flex-col">
+            <div className='mx-4 flex flex-col items-center md:mx-0'>
+                <h2 className="flex items-center gap-2 text-lg font-medium">{sunset}Sunset</h2>
+                <p className="text-3xl font-semibold">{sunsetTime}</p>
+            </div>
 
-            <hr className='w-10/12 rounded-full border-2 border-zinc-600'/>
+            <hr className='hidden w-10/12 rounded-full border-2 border-zinc-600 md:flex' />
 
-            <h2 className="mt-0.5 flex gap-2 text-lg font-medium">{Sunrise}Sunrise</h2>
-            <p className="text-3xl font-semibold">{sunrise}</p>
+            <div className='mx-4 flex flex-col items-center md:mx-0'>
+                <h2 className="mt-0.5 flex gap-2 text-lg font-medium">{Sunrise}Sunrise</h2>
+                <p className="text-3xl font-semibold">{sunrise}</p>
+            </div>
         </div>
     )
 }
